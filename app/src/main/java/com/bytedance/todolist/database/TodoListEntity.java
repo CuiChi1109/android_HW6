@@ -23,13 +23,33 @@ public class TodoListEntity {
     @ColumnInfo(name = "time")
     private Date mTime;
 
+    @ColumnInfo(name = "delete")
+    protected boolean mDelete;
+
     public TodoListEntity(String mContent, Date mTime) {
         this.mContent = mContent;
         this.mTime = mTime;
+        this.mDelete = false;
     }
 
     public String getContent() {
         return mContent;
+    }
+
+
+    public void setDelete(boolean del){
+        this.mDelete = del;
+    }
+    public void changeDel(boolean b){
+        mDelete = b;
+    }
+
+    public boolean getDel(){
+        return mDelete;
+    }
+
+    public void reverseDel(){
+        mDelete = !mDelete;
     }
 
     public void setContent(String mContent) {
